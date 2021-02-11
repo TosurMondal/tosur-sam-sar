@@ -1,0 +1,53 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'tosur-sam-sar
+
+  Sample SAM Template for tosur-sam-sar
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://tosur-sam-sar/c6ce8fa8b5a97dd022ecd006536eb5a4
+      Handler: app.lambda_handler
+      Runtime: python3.7
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
+Metadata:
+  AWS::ServerlessRepo::Application:
+    Name: tosur-sam
+    Description: basic bot app
+    Author: Tosur Mondal
+    SpdxLicenseId: Apache-2.0
+    LicenseUrl: s3://tosur-sam-sar/d41d8cd98f00b204e9800998ecf8427e
+    ReadmeUrl: s3://tosur-sam-sar/1a2431a43d013eb445a13eb7b3ae8233
+    Labels:
+    - tests
+    HomePageUrl: https://github.com/user1/my-app-project
+    SemanticVersion: '0.0.1'
+    SourceCodeUrl: https://github.com/user1/my-app-project
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+  HelloWorldFunction:
+    Description: Hello World Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunction
+      - Arn
+  HelloWorldFunctionIamRole:
+    Description: Implicit IAM Role created for Hello World function
+    Value:
+      Fn::GetAtt:
+      - HelloWorldFunctionRole
+      - Arn
