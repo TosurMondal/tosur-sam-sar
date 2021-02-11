@@ -23,7 +23,7 @@ Resources:
             Method: get
 Metadata:
   AWS::ServerlessRepo::Application:
-    Name: tosur-sam
+    Name: tosur-sam-cicd-pipeline-example
     Description: basic bot app
     Author: Tosur Mondal
     SpdxLicenseId: Apache-2.0
