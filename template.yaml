@@ -3,7 +3,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   tosur-sam-sar
 
-  Sample SAM Template for tosur-sam-sar
+  Sample SAM Template for tosur-sam-sar change made
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
